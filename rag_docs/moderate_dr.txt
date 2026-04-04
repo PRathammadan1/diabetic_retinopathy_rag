@@ -1,0 +1,19 @@
+Moderate Diabetic Retinopathy:
+
+Description:
+Blood vessels that nourish the retina may become blocked.
+Fluid or blood leakage can occur.
+
+Symptoms:
+- Mild vision problems
+- Blurred vision
+- Dark spots in vision
+
+Causes:
+- Diabetes affecting retinal blood vessels
+- Prolonged high blood sugar
+
+Treatment:
+- Blood sugar management
+- Regular monitoring by ophthalmologist
+- Laser treatment if necessary

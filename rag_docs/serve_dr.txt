@@ -1,0 +1,19 @@
+Severe Diabetic Retinopathy:
+
+Description:
+Many retinal blood vessels are blocked, reducing blood supply to retina.
+High risk of progression to proliferative stage.
+
+Symptoms:
+- Noticeable vision problems
+- Blurred or distorted vision
+- Dark spots in vision
+
+Causes:
+- Advanced damage to retinal blood vessels
+- Poorly controlled diabetes
+
+Treatment:
+- Intensive diabetes management
+- Laser therapy to prevent further damage
+- Regular ophthalmology visits

@@ -1,0 +1,18 @@
+Mild Diabetic Retinopathy:
+
+Description:
+Earliest stage of diabetic retinopathy.
+Small bulges in retinal blood vessels (microaneurysms) appear.
+
+Symptoms:
+- Usually no vision problems
+- Occasionally blurred vision
+
+Causes:
+- Early diabetes-related blood vessel changes
+- High blood sugar levels
+
+Treatment:
+- Control blood sugar, blood pressure, and cholesterol
+- Regular eye exams
+- Healthy diet and exercise
