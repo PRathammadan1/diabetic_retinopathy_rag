@@ -19,6 +19,10 @@ import base64
 st.set_page_config(page_title="Diabetic Retinopathy Detection", layout="centered")
 
 import time
+st.markdown(
+    "<p style='font-weight:bold; color:#856404; background-color:#fff3cd; padding:10px; border-radius:8px;'>⚠️ This is an AI-based assistive tool. Not a medical diagnosis.</p>",
+    unsafe_allow_html=True
+)
 
 title = " AI Powered Diabetic Retinopathy Detection"
 placeholder = st.empty()
@@ -35,16 +39,50 @@ for char in title:
     '>{typed_text}</h1>
     """, unsafe_allow_html=True)
     time.sleep(0.03)
+st.markdown("""
+<div style='
+    background: rgba(255,255,255,0.8);
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.2);
+'>
+
+<h3 style='text-align:center; color:#0b5394;'> Diabetic Retinopathy Classes</h3>
+
+<ul style='font-size:17px; color:#333;'>
+
+<li><b style='color:green;'>No DR</b> → No diabetic condition</li>
+
+<li><b style='color:#ffc107;'>Mild</b> → Early signs detected</li>
+
+<li><b style='color:#fd7e14;'>Moderate</b> → Moderate damage</li>
+
+<li><b style='color:#dc3545;'>Severe</b> → High risk condition</li>
+
+<li><b style='color:#6f42c1;'>Proliferative DR</b> → Advanced stage</li>
+
+</ul>
+
+</div>
+""", unsafe_allow_html=True)
+
+st.write(" ")
 
 st.markdown("""
-### My classes of diabetic is
-- NO DR(there is no diabetic)
-- Mild  (Early signs of diabetic retinopathy)
-- Moderate (Moderate damage)
-- Proliferate_DR (there is a chance of boarder line  diabetes)
-- Severe (there is a very dangerous condition caused by diabetic)
-""")
-st.write("Upload a retina image and the AI model will predict the DR stage.")
+<div style='
+    background-color:#e3f2fd;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+    font-size:18px;
+    color:#0d47a1;
+    font-weight:500;
+'>
+Upload a retinal image and let the AI predict the stage of Diabetic Retinopathy
+</div>
+""", unsafe_allow_html=True)
+
+
 # st.markdown("""
 # <style>
 
@@ -176,7 +214,26 @@ labels = {
 
 # -------- IMAGE UPLOAD --------
 
-uploaded_file = st.file_uploader("Upload Retina Image", type=["jpg","jpeg","png"])
+st.markdown("""
+<div style='
+    background-color:#f1f8ff;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+'>
+    <h4> Upload Retina Image</h4>
+    <p style='color:gray;'>Supported formats: JPG, JPEG, PNG</p>
+</div>
+""", unsafe_allow_html=True)
+
+uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"])
+if uploaded_file:
+    image = Image.open(uploaded_file)
+
+    #  resize yaha
+    image = image.resize((202, 204))
+
+    st.image(image, caption="Uploaded Retina Image")
 
 # -------- TRANSFORM --------
 
@@ -187,25 +244,46 @@ transforms.Normalize(mean=[0.485,0.456,0.406], std=[0.229,0.224,0.225])
 ])
 
 # -------- MAIN LOGIC --------
+if st.button("Analyze Image"):
+ if uploaded_file is not None:
 
-if uploaded_file is not None:
+  image = Image.open(uploaded_file).convert("RGB")
+  image = image.resize((224,224))
+  st.image(image, caption="Uploaded Retina Image")
 
- image = Image.open(uploaded_file).convert("RGB")
- image = image.resize((224,224))
- st.image(image, caption="Uploaded Retina Image")
+  img_tensor = transform(image).unsqueeze(0)
 
- img_tensor = transform(image).unsqueeze(0)
+  with st.spinner("🔍 Analyzing retina image..."):
 
- with torch.no_grad():
-    output = model(img_tensor)
-    pred_class = torch.argmax(output, dim=1).item()
-    prediction_label = labels[pred_class]
+    with torch.no_grad():
+      output = model(img_tensor)
+      pred_class = torch.argmax(output, dim=1).item()
+      prediction_label = labels[pred_class]
 
- prob = torch.softmax(output, dim=1)
- confidence = prob[0][pred_class].item()
+    prob = torch.softmax(output, dim=1)
+    confidence = prob[0][pred_class].item()
+  st.session_state.prediction_label = prediction_label
+  st.session_state.confidence = confidence
 
- st.success(f"Prediction: {labels[pred_class]}")
- st.write("Confidence:", round(confidence*100,2), "%")
+  st.markdown(
+    f"""
+    <div style='background-color:#d4edda; padding:15px; border-radius:10px; text-align:center;'>
+        <p style='font-size:35px; font-weight:bold; color:#155724;'>
+            Prediction: {labels[pred_class]}
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+  st.markdown(
+    f"""
+    <p style='text-align:center; font-size:22px; font-weight:bold; color:#0c5460;'>
+        Confidence: {round(confidence*100,2)}%
+    </p>
+    """,
+    unsafe_allow_html=True
+)
  
 
 #  if st.button("Generate Explanation"):
@@ -217,10 +295,11 @@ st.markdown("Ask Questions About Your Result")
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-if uploaded_file is not None:
+if "prediction_label" in st.session_state:
     if len(st.session_state.messages) == 0:
         try:
-            explanation = qa.run(f"Explain {prediction_label} diabetic retinopathy in simple terms")
+            with st.spinner(" Generating explanation..."):
+              explanation = qa.run(f"Explain {prediction_label} diabetic retinopathy in simple terms")
         except:
             explanation = "Explanation not available 😅"
 
@@ -243,7 +322,7 @@ user_input = st.text_input("Ask something...")
 
 if user_input:
     st.session_state.messages.append({"role": "user", "content": user_input})
-
+    
     try:
         answer = qa.run(user_input)
     except:

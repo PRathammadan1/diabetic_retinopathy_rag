@@ -1,5 +1,30 @@
-dataset/
-*.zip
+# =========================
+# Dataset (VERY IMPORTANT)
+# =========================
+diabetic_data/
+dataset.zip
+
+# =========================
+# Model files (ML weights)
+# =========================
 *.pth
-*.h5
-*.pt
+best_resnet_model.pth
+best_resnet18_model.pth
+best_resnet18.pth
+
+# =========================
+# Python cache
+# =========================
+__pycache__/
+*.pyc
+
+# =========================
+# Virtual environment
+# =========================
+venv/
+.env
+
+# =========================
+# Temporary files
+# =========================
+tempCodeRunnerFile.py
