@@ -3,7 +3,7 @@ import requests
 
 app = FastAPI()
 
-API_KEY = "AIzaSyBYPb5NoBa4OgaNrKO_MTYKAfc6ifeKazI"
+API_KEY = ""
 
 @app.get("/places")
 def get_places(lat: float =Query(...,description="in this, we get a loaction of latitude"), 

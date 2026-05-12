@@ -3,7 +3,7 @@ import requests
 
 app = FastAPI()
 
-API_KEY = "AIzaSyBYPb5NoBa4OgaNrKO_MTYKAfc6ifeKazI"
+API_KEY = ""
 
 
 @app.get("/geocode")
