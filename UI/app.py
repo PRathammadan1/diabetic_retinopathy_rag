@@ -329,3 +329,22 @@ if user_input:
         answer = "AI not working 😅"
 
     st.session_state.messages.append({"role": "assistant", "content": answer})
+
+import streamlit as st
+import requests
+
+st.title("Geocoding App")
+
+address = st.text_input("Enter address")
+
+if st.button("Get Location"):
+    res = requests.get(
+        "http://127.0.0.1:8000/geocode",
+        params={"address": address}
+    )
+
+    data = res.json()
+    st.json(data)
+if st.button("Find Places"):
+    res = requests.get("http://127.0.0.1:8000/places")
+    st.json(res.json())
