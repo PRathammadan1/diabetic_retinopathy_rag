@@ -69,7 +69,7 @@ This project proposes an AI-powered automated screening system:
   <img src="images/home.png" width="600"/> 
 </p> 
 
-### upload
+### Upload Section
 <p align="center">
   <img src="images/upload1.png" width="600"/> 
 </p> 
@@ -89,11 +89,15 @@ This project proposes an AI-powered automated screening system:
 # How to Run
 
 ## 1. Clone Repository
+```bash
 git clone https://github.com/PRathammadan1/diabetic_retinopathy_rag.git
 cd diabetic_retinopathy_rag
+```
 
 ## 2. Install Dependencies
+```bash
 pip install -r requirements.txt
+```
 
 ## 3. Download Dataset
 Download the dataset from Kaggle:
@@ -108,11 +112,15 @@ After downloading:
 
 * Place it inside the project folder (e.g., /diabetic_data)
 
-## 4. Run Backend (FastAPI)
+## 4. Run Backend
+```bash
 uvicorn app:app --reload
+```
 
-## 5. Run Frontend (Streamlit)
+## 5. Run Frontend
+```bash
 streamlit run app.py
+```
 
 
 
