@@ -102,8 +102,11 @@ Download the dataset from Kaggle:
 
 After downloading:
 - Extract the dataset
- 
-- Place it inside the project folder (e.g., /data)
+<p align="center"> 
+  <img src="images/example.png" width="600"/> 
+</p>
+
+* Place it inside the project folder (e.g., /diabetic_data)
 
 ## 4. Run Backend (FastAPI)
 uvicorn app:app --reload
