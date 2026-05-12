@@ -48,7 +48,9 @@ This project proposes an AI-powered automated screening system:
 * Performance on advanced stages like Proliferative DR needs further optimization.
 
 ## Output / Confusion Matrix
-<img width="400" height="400" alt="Screenshot 2026-02-23 140439" src="https://github.com/user-attachments/assets/4b111f91-d8d8-4d4f-889b-c4c84a42ab50" />
+<p align="center"> 
+  <img src="images/confusion.png" width="600"/> 
+</p> 
 
 ## Limitations
 * Class imbalance in dataset
@@ -56,20 +58,27 @@ This project proposes an AI-powered automated screening system:
 * Limited performance on advanced disease stages
 
 ## UI Preview
+### Home Screen 
+<p align="center"> 
+  <img src="images/home.png" width="600"/> 
+</p> 
 
-### Home Screen
-<img width="800" height="1012" alt="Screenshot 2026-05-13 022748" src="https://github.com/user-attachments/assets/9d302421-bc1a-4582-980e-6dd202493d54" />
-
-### Upload Section
-<img width="800" height="561" alt="image" src="https://github.com/user-attachments/assets/ed83ab03-110d-4ff7-879c-91d80b93b08f" />
-
+### upload
+<p align="center">
+  <img src="images/upload1.png" width="600"/> 
+</p> 
 
 ## Model Output
-<img width="800" height="566" alt="Screenshot 2026-05-13 025005" src="https://github.com/user-attachments/assets/0e032e1d-8bc0-4b36-8898-0373e36b9fd2" />
+<p align="center"> <img src="images/result.png" width="600"/> 
+</p> 
 
 ## Chatbot
-<img width="1068" height="296" alt="image" src="https://github.com/user-attachments/assets/48000024-87c9-420d-adfa-a2b36bcf14a7" />
-<img width="1036" height="304" alt="image" src="https://github.com/user-attachments/assets/ca298778-c2ce-458e-8e07-7ec531d46dca" />
+<p align="center"> <img src="images/chatbot.png" width="600"/>
+</p> <br>
+
+<p align="center"> 
+  <img src="images/chatbot1.png" width="600"/> 
+</p>
 
 
 
