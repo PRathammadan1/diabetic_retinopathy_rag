@@ -1,5 +1,11 @@
-# Diabetic Retinopathy Detection System
+# Diabetic Retinopathy Detection using Deep Learning + RAG Chatbot
 
+## Project Highlights
+* CNN-based medical image classification
+* AI Chatbot (RAG + Ollama) for explanations
+* FastAPI backend + Streamlit UI
+* Real-world healthcare application
+  
 ## Overview
 Diabetic Retinopathy is a serious eye disease caused by diabetes that can lead to blindness if not detected early.
 
@@ -80,6 +86,30 @@ This project proposes an AI-powered automated screening system:
   <img src="images/chatbot1.png" width="600"/> 
 </p>
 
+# How to Run
+
+## 1. Clone Repository
+git clone https://github.com/PRathammadan1/diabetic_retinopathy_rag.git
+cd diabetic_retinopathy_rag
+
+## 2. Install Dependencies
+pip install -r requirements.txt
+
+## 3. Download Dataset
+Download the dataset from Kaggle:
+
+👉 https://www.kaggle.com/datasets/xxxxx/diabetic-retinopathy-detection
+
+After downloading:
+- Extract the dataset
+ 
+- Place it inside the project folder (e.g., /data)
+
+## 4. Run Backend (FastAPI)
+uvicorn app:app --reload
+
+## 5. Run Frontend (Streamlit)
+streamlit run app.py
 
 
 
