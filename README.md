@@ -122,6 +122,13 @@ uvicorn app:app --reload
 streamlit run app.py
 ```
 
+## Future Improvements
+* Improve classification for severe stages
+* Deploy on cloud (AWS / HuggingFace Spaces)
+* Add real-time doctor consultation
+* Doctor recommendation system based on disease severity
+* Suggest nearby ophthalmologists for consultation
+* Integration with hospital APIs for appointment booking
 
 
 
